@@ -72,7 +72,30 @@ Outputs include `.json` files containing collected posts, structured according t
 For explaination of the fields in the downloaded `.json` file, refer to [4chan API page](https://github.com/4chan/4chan-API/blob/master/pages/Threads.md)
 
 ## How to Use
+You can run 4TCT from the command line to start collecting threads from specific 4chan boards.
 - Run `python src/requester.py` to start data collection, with options `-b` for board selection and `-e` for board exclusion. Advanced usage includes adjusting request intervals and logging levels for detailed monitoring.
+
+Use the `-b` option to specify which boards to scrape:
+
+```bash
+python src/requester.py -b a g sci
+```
+
+This collects threads from the `/a/` (Anime), `/g/` (Technology), and `/sci/` (Science & Math) boards.
+
+To **exclude** certain boards instead of including them, add the `-e` flag:
+
+```bash
+python src/requester.py -b pol -e
+```
+
+This collects threads from all boards **except** `/pol/`.
+
+To view all available options, run:
+
+```bash
+python src/requester.py -h
+```
 - To use a configuration file instead of command-line arguments, add the `-c` flag without any other arguments. (i.e. `python src/requester.py -c`) This will read settings from a [config.json](https://github.com/BDA-KTS/4CTC/blob/main/config.json) file located the root folder. 
   The configuration file should be structured as follows:
     ```json
