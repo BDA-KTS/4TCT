@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 4TCT
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Po-Chun
+    family-names: Chang
+    orcid: 'https://orcid.org/0009-0002-9371-8582'
+  - given-names: 'Jack '
+    family-names: Culbert
+    orcid: 'https://orcid.org/0009-0000-1581-4021'
+abstract: >-
+  4TCT is a specialized tool designed for the efficient
+  collection of textual data from the 4chan platform. It
+  automates the process of gathering posts from various
+  boards, aiming to facilitate research and analysis in
+  social science and computational linguistics.
+license: AGPL-3.0-or-later
