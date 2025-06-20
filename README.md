@@ -8,32 +8,15 @@
 
 This tool is particularly useful for analyzing online discourse, community dynamics, and trends within the 4chan ecosystem. It can support research on topics such as *hate speech*, *conspiracy theories*, *online extremism*, *meme culture*, *information dissemination*, and the impact of anonymous social media on public opinion. The research paper [User unknown: 4chan, anonymity and contingency](https://firstmonday.org/ojs/index.php/fm/article/view/3665/8696) investigates anonymity and contingency aspects of 4chan in keeping its users unknown.
 
-## Keywords
-4chan, data collection, data collection tool in Python.
-
-## Social Science Use Case(s)
+## Use Case(s)
 - A **social scientist** analyzes the prevalence and evolution of hate speech and extremist narratives in online communities. They use 4TCT to collect posts from various 4chan boards to study patterns and triggers for such discourse.
 - A **research team** investigates how conspiracy theories emerge and spread during political events. Using 4TCT, they gather data to identify key narratives and influential threads on 4chan boards.
 - A **computational linguist** leverages 4TCT to build a corpus for training models on internet slang, meme-based text, and the language of conspiracy theories.
 
-## Repo Structure
-The tool's architecture includes a [src/](https://github.com/BDA-KTS/4CTC/tree/main/src) directory for core scripts, with [requester.py](https://github.com/BDA-KTS/4CTC/blob/main/src/requester.py) handling data collection, [board.py](https://github.com/BDA-KTS/4CTC/blob/main/src/board.py) managing board-specific requests, and [utils.py](https://github.com/BDA-KTS/4CTC/blob/main/src/utils.py) for auxiliary functions. Data is stored in a `data/` directory created upon initiation, and documentation is available in [docs/](https://github.com/BDA-KTS/4CTC/tree/main/docs).
-
-## Environment Setup
-It Requires Python>3.10.2 Suitable for environments focused on data collection and analysis.
-
-Dependencies are listed in [requirements.txt](https://github.com/BDA-KTS/4CTC/blob/main/requirements.txt) and can be installed via `pip install -r requirements.txt` to ensure the tool functions correctly.
-
-
 ## Input Data
-Not applicable as 4TCT gathers data directly from 4chan. 
+Not applicable as the tool dynamically gathers live data directly from 4chan boards based on user-defined parameters.
 
-## Sample Input and Output Data
-
-### Input 
-Input data is not applicable as the tool dynamically collects live data from 4chan boards based on user-defined parameters.
-
-### Output 
+## Output 
 Outputs include `.json` files containing collected posts, structured according to 4chan's API documentation, with directories organized by date and board.
 
 ```json
@@ -73,6 +56,14 @@ Outputs include `.json` files containing collected posts, structured according t
 ```
 
 For explaination of the fields in the downloaded `.json` file, refer to [4chan API page](https://github.com/4chan/4chan-API/blob/master/pages/Threads.md)
+
+## Hardware Requirements
+The method require dedicated server(s) with enough capacity (depending on parameters settings) to store the data.
+
+## Environment Setup
+It Requires Python>3.10.2 Suitable for environments focused on data collection and analysis.
+
+Dependencies are listed in [requirements.txt](https://github.com/BDA-KTS/4CTC/blob/main/requirements.txt) and can be installed via `pip install -r requirements.txt` to ensure the tool functions correctly.
 
 ## How to Use
 You can run 4TCT from the command line to start collecting threads from specific 4chan boards.
@@ -140,8 +131,7 @@ python src/requester.py -h
     python src/requester.py -h
     ```
     
-
-### To initialize:
+To initialize:
   - Two directories are created for logs, and the data (saves/"the current date")
   - The requester will first query the 4chan API to find the current list of boards, if present the include or exclude boards are selected or removed from the list. For every board resulting from this process, two subdirectories folder will be created in the data folder, one for storing the threads and one for the thread on each board.
   - The requester then goes through each board to find a list of threads on each board. These are saved to the threads_on_boards folder
@@ -150,10 +140,9 @@ python src/requester.py -h
   - **Rerun:** The requester attempts to pick up from previous runs by observing the state of the saves directory. If this is deleted it will act as from fresh.
   - **Logs:** Debug logs are set to capture each API call and are as such, very detailed (approx 80 times as large as info). By default the info log is output to terminal.
 
-## Contact Details
-For questions or contributions, contact Jack H. Culbert at jack.culbert@gesis.org and Po-Chun Chang for maintenance issues at po-chun.chang@gesis.org.
+## References
+Thank you very much to the team behind the [4chan API](https://github.com/4chan/4chan-API)!
 
-## Publication
 The associated technical report is available at:
  Culbert, J. H. (2023). 4TCT, A 4chan Text Collection Tool. arXiv preprint arXiv:2307.03556. [arXiv:2307.03556](https://arxiv.org/abs/2307.03556).
 *Users are encouraged to cite this paper when using the tool in research.*
@@ -166,26 +155,14 @@ Gratitude is also extended to the **[4chan API team](https://github.com/4chan)**
 ## Disclaimer
 The creators of 4TCT and GESIS are not affiliated with 4chan. The tool is intended for academic research, and users are responsible for ensuring the legality and ethicality of their data use.
 
-## Limitations
-Please ensure you follow the 4chan API Rules and Terms of Service found [here](https://github.com/4chan/4chan-API/blob/master/README.md).
-
-### API Rules ###
-Below official API rules have been made as default setting for this repo. They are listed here for those who are interested in modifying the repo.
+API Rules: Below official API rules have been made as default setting for this repo. They are listed here for those who are interested in modifying the repo.
 1. Do not make more than one request per second. To change the waiting time, use `--request-time-limit {your_ideal_value}` flag to set your ideal waiting time (only value above 1 will be accepted).
 2. Thread updating should be set to a minimum of 10 seconds, preferably higher.
 3. Use [If-Modified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since) when doing your requests.
 4. Make API requests using the same protocol as the app. Only use SSL when a user is accessing your app over HTTPS.
 
-### API Terms of Service ###
+Please ensure you follow the 4chan API Rules and Terms of Service found [here](https://github.com/4chan/4chan-API/blob/master/README.md).
 
-1. You may not use "4chan" in the title of your application, product, or service.
-2. You may not use the 4chan name, logo, or brand to promote your application, product, or service.
-3. You must disclose the source of the information shown by your application, product, or service as 4chan, and provide a link.
-4. You may not market your application, product, or service as being "official" in any way.
-5. You may not clone 4chan or its existing features/functionality. Example: Don't suck down our JSON, host it elsewhere, and throw ads around it.
-6. These terms are subject to change without notice.
-
-## References
-Thank you very much to the team behind the [4chan API](https://github.com/4chan/4chan-API)!
-
+## Contact Details
+For questions or contributions, contact Jack H. Culbert at [jack.culbert@gesis.org](mailto:jack.culbert@gesis.org) and Po-Chun Chang for maintenance issues at [po-chun.chang@gesis.org](mailto:po-chun.chang@gesis.org).
 
