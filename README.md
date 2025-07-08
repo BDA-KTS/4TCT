@@ -8,7 +8,7 @@
 
 This tool is particularly useful for analyzing online discourse, community dynamics, and trends within the 4chan ecosystem. It can support research on topics such as *hate speech*, *conspiracy theories*, *online extremism*, *meme culture*, *information dissemination*, and the impact of anonymous social media on public opinion. The research paper [User unknown: 4chan, anonymity and contingency](https://firstmonday.org/ojs/index.php/fm/article/view/3665/8696) investigates anonymity and contingency aspects of 4chan in keeping its users unknown.
 
-## Use Case(s)
+## Use Cases
 - A **social scientist** analyzes the prevalence and evolution of hate speech and extremist narratives in online communities. They use 4TCT to collect posts from various 4chan boards to study patterns and triggers for such discourse.
 - A **research team** investigates how conspiracy theories emerge and spread during political events. Using 4TCT, they gather data to identify key narratives and influential threads on 4chan boards.
 - A **computational linguist** leverages 4TCT to build a corpus for training models on internet slang, meme-based text, and the language of conspiracy theories.
@@ -16,7 +16,7 @@ This tool is particularly useful for analyzing online discourse, community dynam
 ## Input Data
 Not applicable as the tool dynamically gathers live data directly from 4chan boards based on user-defined parameters.
 
-## Output 
+## Output Data
 Outputs include `.json` files containing collected posts, structured according to 4chan's API documentation, with directories organized by date and board.
 
 ```json
@@ -61,12 +61,17 @@ For explaination of the fields in the downloaded `.json` file, refer to [4chan A
 The method require dedicated server(s) with enough capacity (depending on parameters settings) to store the data.
 
 ## Environment Setup
-It Requires Python>3.10.2 Suitable for environments focused on data collection and analysis.
+4TCT requires Python > 3.10.2.
 
-Dependencies are listed in [requirements.txt](https://github.com/BDA-KTS/4CTC/blob/main/requirements.txt) and can be installed via `pip install -r requirements.txt` to ensure the tool functions correctly.
+Install all requirements using:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## How to Use
 You can run 4TCT from the command line to start collecting threads from specific 4chan boards.
+
 - Run `python src/requester.py` to start data collection, with options `-b` for board selection and `-e` for board exclusion. Advanced usage includes adjusting request intervals and logging levels for detailed monitoring.
 
 Use the `-b` option to specify which boards to scrape:
@@ -132,6 +137,7 @@ python src/requester.py -h
     ```
     
 To initialize:
+
   - Two directories are created for logs, and the data (saves/"the current date")
   - The requester will first query the 4chan API to find the current list of boards, if present the include or exclude boards are selected or removed from the list. For every board resulting from this process, two subdirectories folder will be created in the data folder, one for storing the threads and one for the thread on each board.
   - The requester then goes through each board to find a list of threads on each board. These are saved to the threads_on_boards folder
