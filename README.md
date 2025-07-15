@@ -142,16 +142,15 @@ To initialize:
 - **Logs:** Debug logs are set to capture each API call and are as such, very detailed (approx 80 times as large as info). By default the info log is output to terminal.
 
 ## References
-Thank you very much to the team behind the [4chan API](https://github.com/4chan/4chan-API)!
-
 The associated technical report is available at:
  Culbert, J. H. (2023). 4TCT, A 4chan Text Collection Tool. arXiv preprint arXiv:2307.03556. [arXiv:2307.03556](https://arxiv.org/abs/2307.03556).
+
 *Users are encouraged to cite this paper when using the tool in research.*
 
 ## Acknowledgements
 Special thanks to **Jack Culbert**, the original creator of this repository, for laying the foundation of this project.  
 Deep appreciation to **Po-Chun Chang**, who, through iterative improvements, expanded the utility and structure of the repository, making it more robust and publishable.  
-Gratitude is also extended to the **[4chan API team](https://github.com/4chan)** for providing the foundational resources that enable this tool's functionality.  
+Gratitude is also extended to the **[4chan API team](https://github.com/4chan)** for providing the foundational resources (particularly [4chan API](https://github.com/4chan/4chan-API)) that enable this tool's functionality.  
 
 ## Disclaimer
 The creators of 4TCT and GESIS are not affiliated with 4chan. The tool is intended for academic research, and users are responsible for ensuring the legality and ethicality of their data use.
