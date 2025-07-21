@@ -9,9 +9,9 @@
 This tool is particularly useful for analyzing online discourse, community dynamics, and trends within the 4chan ecosystem. It can support research on topics such as *hate speech*, *conspiracy theories*, *online extremism*, *meme culture*, *information dissemination*, and the impact of anonymous social media on public opinion. The research paper [User unknown: 4chan, anonymity and contingency](https://firstmonday.org/ojs/index.php/fm/article/view/3665/8696) investigates anonymity and contingency aspects of 4chan in keeping its users unknown.
 
 ## Use Cases
-- A **social scientist** analyzes the prevalence and evolution of hate speech and extremist narratives in online communities. They use 4TCT to collect posts from various 4chan boards to study patterns and triggers for such discourse.
-- A **research team** investigates how conspiracy theories emerge and spread during political events. Using 4TCT, they gather data to identify key narratives and influential threads on 4chan boards.
-- A **computational linguist** leverages 4TCT to build a corpus for training models on internet slang, meme-based text, and the language of conspiracy theories.
+- To analyze the prevalence and evolution of hate speech and extremist narratives in online communities. 4TCT collect posts from various 4chan boards to study patterns and triggers for such discourse.
+- To investigate how conspiracy theories emerge and spread during political events. Using 4TCT, gather data to identify key narratives and influential threads on 4chan boards.
+- To leverage 4TCT to build a corpus for training models on internet slang, meme-based text, and the language of conspiracy theories.
 
 ## Input Data
 Not applicable as the tool dynamically gathers live data directly from 4chan boards based on user-defined parameters.
@@ -138,30 +138,30 @@ python src/requester.py -h
     
 To initialize:
 
-  - Two directories are created for logs, and the data (saves/"the current date")
-  - The requester will first query the 4chan API to find the current list of boards, if present the include or exclude boards are selected or removed from the list. For every board resulting from this process, two subdirectories folder will be created in the data folder, one for storing the threads and one for the thread on each board.
-  - The requester then goes through each board to find a list of threads on each board. These are saved to the threads_on_boards folder
-  - The requester then requests the posts on each board. The data is saved to a subfolder of threads, with a name consisting of the thread id and the time of first observance.
-  - The loop repeats by checking each board for new and dead threads, then querying the new and live threads.   
-  - **Rerun:** The requester attempts to pick up from previous runs by observing the state of the saves directory. If this is deleted it will act as from fresh.
-  - **Logs:** Debug logs are set to capture each API call and are as such, very detailed (approx 80 times as large as info). By default the info log is output to terminal.
+- Two directories are created for logs, and the data (saves/"the current date")
+- The requester will first query the 4chan API to find the current list of boards, if present the include or exclude boards are selected or removed from the list. For every board resulting from this process, two subdirectories folder will be created in the data folder, one for storing the threads and one for the thread on each board.
+- The requester then goes through each board to find a list of threads on each board. These are saved to the threads_on_boards folder
+- The requester then requests the posts on each board. The data is saved to a subfolder of threads, with a name consisting of the thread id and the time of first observance.
+- The loop repeats by checking each board for new and dead threads, then querying the new and live threads.   
+- **Rerun:** The requester attempts to pick up from previous runs by observing the state of the saves directory. If this is deleted it will act as from fresh.
+- **Logs:** Debug logs are set to capture each API call and are as such, very detailed (approx 80 times as large as info). By default the info log is output to terminal.
 
 ## References
-Thank you very much to the team behind the [4chan API](https://github.com/4chan/4chan-API)!
-
 The associated technical report is available at:
  Culbert, J. H. (2023). 4TCT, A 4chan Text Collection Tool. arXiv preprint arXiv:2307.03556. [arXiv:2307.03556](https://arxiv.org/abs/2307.03556).
+
 *Users are encouraged to cite this paper when using the tool in research.*
 
 ## Acknowledgements
 Special thanks to **Jack Culbert**, the original creator of this repository, for laying the foundation of this project.  
 Deep appreciation to **Po-Chun Chang**, who, through iterative improvements, expanded the utility and structure of the repository, making it more robust and publishable.  
-Gratitude is also extended to the **[4chan API team](https://github.com/4chan)** for providing the foundational resources that enable this tool's functionality.  
+Gratitude is also extended to the **[4chan API team](https://github.com/4chan)** for providing the foundational resources (particularly [4chan API](https://github.com/4chan/4chan-API)) that enable this tool's functionality.  
 
 ## Disclaimer
 The creators of 4TCT and GESIS are not affiliated with 4chan. The tool is intended for academic research, and users are responsible for ensuring the legality and ethicality of their data use.
 
 API Rules: Below official API rules have been made as default setting for this repo. They are listed here for those who are interested in modifying the repo.
+
 1. Do not make more than one request per second. To change the waiting time, use `--request-time-limit {your_ideal_value}` flag to set your ideal waiting time (only value above 1 will be accepted).
 2. Thread updating should be set to a minimum of 10 seconds, preferably higher.
 3. Use [If-Modified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since) when doing your requests.
