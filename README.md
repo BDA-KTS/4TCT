@@ -16,7 +16,7 @@ This tool is particularly useful for analyzing online discourse, community dynam
 ## Input Data
 Not applicable as the tool dynamically gathers live data directly from 4chan boards based on user-defined parameters.
 
-## Output 
+## Output Data
 Outputs include `.json` files containing collected posts, structured according to 4chan's API documentation, with directories organized by date and board.
 
 ```json
@@ -61,12 +61,17 @@ For explaination of the fields in the downloaded `.json` file, refer to [4chan A
 The method require dedicated server(s) with enough capacity (depending on parameters settings) to store the data.
 
 ## Environment Setup
-It Requires Python>3.10.2 Suitable for environments focused on data collection and analysis.
+4TCT requires Python > 3.10.2.
 
-Dependencies are listed in [requirements.txt](https://github.com/BDA-KTS/4CTC/blob/main/requirements.txt) and can be installed via `pip install -r requirements.txt` to ensure the tool functions correctly.
+Install all requirements using:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## How to Use
 You can run 4TCT from the command line to start collecting threads from specific 4chan boards.
+
 - Run `python src/requester.py` to start data collection, with options `-b` for board selection and `-e` for board exclusion. Advanced usage includes adjusting request intervals and logging levels for detailed monitoring.
 
 Use the `-b` option to specify which boards to scrape:
