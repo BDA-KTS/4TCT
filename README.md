@@ -1,6 +1,3 @@
-[![MethodsHub Guidelines](https://img.shields.io/badge/MethodsHub_Methods-GuidelinesV3-purple)](https://github.com/GESIS-Methods-Hub/guidelines-for-methods/)
-![](https://img.shields.io/badge/License-MIT-blue)
- 
 # 4TCT: A 4chan Text Collection Tool
 
 ## Description
