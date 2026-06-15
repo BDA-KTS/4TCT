@@ -143,6 +143,9 @@ To initialize:
 - **Rerun:** The requester attempts to pick up from previous runs by observing the state of the saves directory. If this is deleted it will act as from fresh.
 - **Logs:** Debug logs are set to capture each API call and are as such, very detailed (approx 80 times as large as info). By default the info log is output to terminal.
 
+## Technical Details
+Technical information can be found in the project documentation ([(Technical Details)](https://github.com/jhculb/4TCT)) and the corresponding research paper ([arXiv:2307.03556](https://arxiv.org/abs/2307.03556)).
+
 ## References
 The associated technical report is available at:
  Culbert, J. H. (2023). 4TCT, A 4chan Text Collection Tool. arXiv preprint arXiv:2307.03556. [arXiv:2307.03556](https://arxiv.org/abs/2307.03556).
